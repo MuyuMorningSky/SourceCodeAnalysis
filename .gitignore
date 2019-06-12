@@ -1,0 +1,41 @@
+HELP.md
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea/
+.mvn/
+
+*.iws
+*.iml
+*.ipr
+*.class
+*.jar
+*.war
+*.ear
+
+target
+mvnw
+mvnw.cmd
+
+# ignore eclipse files
+.project
+.classpath
+.settings
+.metadata
+logs/*
+
+*.log
+
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+### VS Code ###
+.vscode/
+
