@@ -9,7 +9,7 @@
             <transactionManager type="JDBC"/>
             <!-- 数据库连接相关配置 ,这里动态获取config.properties文件中的内容-->
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://47.107.151.74:3306/test"/>
                 <property name="username" value="root"/>
                 <property name="password" value="123456"/>
