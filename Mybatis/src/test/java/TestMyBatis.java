@@ -1,5 +1,5 @@
 import com.mayikt.entity.UserEntity;
-import com.mayikt.mapper.UserMapper;
+import com.mayikt.mappers.UserMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -28,12 +28,13 @@ public class TestMyBatis {
             String resources = "mybatis_config.xml";
             // 2.获取InputStreamReaderIo流
             Reader reader = Resources.getResourceAsReader(resources);
-            // 3.获取SqlSessionFactory
+            // 3.解析XML,获取SqlSessionFactory
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-            // 4.获取Session
+            // 4.获取Session执行器
             SqlSession sqlSession = sqlSessionFactory.openSession();
-            // 5.操作Mapper接口
+            // 5.代理Mapper接口
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+            // 6.反射执行sql
             UserEntity user = mapper.getUser(1);
             System.out.println(user);
         } catch (Exception e) {
