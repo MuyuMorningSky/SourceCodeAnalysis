@@ -1,5 +1,7 @@
 package com.mayikt.session;
 
+import com.mayikt.executor.SimpleExecutor;
+
 public class DefaultSqlSessionFactory implements SqlSessionFactory {
 
     private final Configuration configuration;
@@ -8,8 +10,9 @@ public class DefaultSqlSessionFactory implements SqlSessionFactory {
         this.configuration = configuration;
     }
 
+    //开启会话，初始化执行器
     public SqlSession openSqlSession() {
-        // 只用默认的sqlSqlSession
-        return new DefaultSqlSession(configuration);
+        SimpleExecutor simpleExecutor = new SimpleExecutor();
+        return new DefaultSqlSession(configuration, simpleExecutor);
     }
 }

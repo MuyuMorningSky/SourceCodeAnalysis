@@ -21,7 +21,9 @@ public class XMLConfigBuilder extends BaseBuilder{
     }
 
     public Configuration parse() {
+        //1. 数据源配置
         propertiesDataSource();
+        //2. mapper接口配置
         propertieMappers();
         return this.configuration;
     }
@@ -41,9 +43,11 @@ public class XMLConfigBuilder extends BaseBuilder{
     private void propertieMappers(){
         String mappers = propertiesUtil.readProperty("mappers");
         this.configuration.setMappers(mappers);
+        //装配mappers包下接口
         List<Class<?>> classSet = ClassUtil.getClassSet(mappers);
         for (int i = 0; i < classSet.size(); i++) {
             Class<?> classInfo = classSet.get(i);
+            //注册knownMapper
             configuration.addMapper(classInfo);
         }
     }

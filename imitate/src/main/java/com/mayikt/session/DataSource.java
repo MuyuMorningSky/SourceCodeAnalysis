@@ -1,8 +1,11 @@
 package com.mayikt.session;
 
+import lombok.Data;
+
+@Data
 public class DataSource {
 
-    private String userName;
+    private String username;
 
     private String password;
 
@@ -10,8 +13,8 @@ public class DataSource {
 
     private String driver;
 
-    public DataSource(String userName, String password, String url, String driver) {
-        this.userName = userName;
+    public DataSource(String username, String password, String url, String driver) {
+        this.username = username;
         this.password = password;
         this.url = url;
         this.driver = driver;

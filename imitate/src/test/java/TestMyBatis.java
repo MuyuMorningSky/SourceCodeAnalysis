@@ -13,13 +13,14 @@ import com.mayikt.session.SqlSessionFactoryBuilder;
 public class TestMyBatis {
     public static void main(String[] args) throws Exception {
         System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
-        // 1.获取默认sqlSessionFactory
+        // 1.装配文件，
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build("my_config.properies");
+        // 2.开启会话，设置默认执行器
         SqlSession sqlSession = sqlSessionFactory.openSqlSession();
-        // 2.生成UserMapper代理类
+        // 2.生成代理对象
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         // 3.执行MapperProxy invoke
-        UserEntity userEntity = userMapper.getUser(11);
+        UserEntity userEntity = userMapper.getUser(1);
         System.out.println(userEntity.toString());
 
     }
